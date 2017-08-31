@@ -3,7 +3,7 @@ username: zcoljefe
 baseurl: /
 title: Zcoljefe's Blog
 description: Progress is not created by contented people!
-
+show_downloads:true
 
 encoding: utf-8
 theme: jekyll-theme-architect
