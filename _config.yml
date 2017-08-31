@@ -1,7 +1,6 @@
 #################################### global configure #######################################
 username: zcoljefe
 baseurl: /
-markdown: redcarpet
 title: Zcoljefe's Blog
 description: Progress is not created by contented people!
 
