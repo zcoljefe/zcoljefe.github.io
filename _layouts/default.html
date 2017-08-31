@@ -35,8 +35,8 @@
 			<div class="aside-item">
 				<p class="title">Recent Posts</p>
 				<ul class="list">
-					{% for rpost in site.posts limit:6  %}
-						<li><a href="{{ site.baseurl }}{{ rpost.url }}" title="{{ rpost.title }}" rel="bookmark">{{ rpost.title }}</a></li>
+					{% for post in site.posts limit:6  %}
+						<li><a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}" rel="bookmark">{{ post.title }}</a></li>
 					{% endfor %}
 				</ul>
 			</div>

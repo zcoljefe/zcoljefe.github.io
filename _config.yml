@@ -4,6 +4,8 @@ username: zcoljefe
 title: Zcoljefe's Blog
 description: Progress is not created by contented people!
 
+excerpt_separator: <!--more-->
+
 encoding: utf-8
 theme: jekyll-theme-architect
 

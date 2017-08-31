@@ -4,7 +4,8 @@ title:  "Hibernate validator校验"
 date:   2017-08-31 16:16:16
 categories: Hibernate validator
 ---
-
+服务器端校验一直是各个系统的薄弱环节，许多系统甚至没有服务器端的校验。Hibernate Validator实现了JavaEE的注解校验，同时对其进行了扩展，通过注解的方式实现规则校验，同时还可以自定义校验规则，十分方便。
+<!--more-->
 # 服务端校验使用说明
 ---
 ## 一、校验使用方式
