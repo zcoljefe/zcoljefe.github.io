@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  "Hibernate validator校验及自定义校验"
+title:  "Hibernate validator校验"
 date:   2017-08-31 16:16:16
 categories: Hibernate validator
 ---
