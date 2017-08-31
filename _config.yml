@@ -1,2 +1,11 @@
+#################################### global configure #######################################
+username: zcoljefe
+baseurl: /
+markdown: redcarpet
+title: Zcoljefe's Blog
+description: Progress is not created by contented people!
+
+
 encoding: utf-8
 theme: jekyll-theme-architect
+
