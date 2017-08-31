@@ -1,6 +1,6 @@
 ---
 layout: default
-title:  "排序算法"
+title:  "简单排序与高级排序"
 date:   2017-08-30 16:16:16
 categories: java
 ---

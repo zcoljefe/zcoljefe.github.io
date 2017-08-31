@@ -1,11 +1,11 @@
 ---
 layout: default
-title:  "http协议"
+title:  "http协议格式详解"
 date:   2017-07-01 16:16:16
 categories: java
 ---
 **HTTP 请求数据**  
-![]({{ site.url }}/_images/13-27-09.jpg)
+![]({{ site.baseurl }}/_images/13-27-09.jpg)
 
 **请求实例：**  
 ```
@@ -22,7 +22,7 @@ Cookie: JSESSIONID=F62F7A4ED2A91446B0552AABF659D9ED; userType=1
 ```
 
 **HTTP 响应数据**  
-![]({{ site.url }}/_images/13-31-09.jpg)
+![](/_images/13-31-09.jpg)
 
 **响应实例：**  
 ```
