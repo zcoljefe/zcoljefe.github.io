@@ -6,9 +6,9 @@ title: 最新动态
 	<div class="index-blog-list">
 		<div class="title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></div>
 		<div class="shotinfo">时间：{{ post.date }}; 分类：{{post.categories}}</div>
-		<p>{{ post.excerpt }}</p>
+		{{ post.excerpt }}
 	</div>
 {% endfor %}
 	<div>
-		查看更多
+		<a href="#">查看更多...</a>
 	<div>
