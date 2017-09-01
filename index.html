@@ -5,10 +5,10 @@ title: 最新动态
 {% for post in site.posts limit:5  %}
 	<div class="index-blog-list">
 		<div class="title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></div>
-		<div class="shotinfo">时间：{{ post.date }}; 分类：{{post.categories}}</div>
-		<p>{{ post.excerpt }}</p>
+		<div class="shotinfo">时间：{{ post.date }};&nbsp;&nbsp;&nbsp;&nbsp;类别：{{post.categories}}</div>
+		{{ post.excerpt }}
 	</div>
 {% endfor %}
 	<div>
-		查看更多
+		<a href="#">查看更多...</a>
 	<div>
