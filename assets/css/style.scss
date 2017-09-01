@@ -217,3 +217,21 @@
 .main .article .info-link a:hover {
     border-bottom: none;
 }
+
+.main .article .categories {
+    width: 100%;
+    overflow: hidden;
+    margin: 20px 0;
+    padding-left: 0;
+}
+.main .categories .categories-item {
+    list-style-type: none;
+    background: #99b9c4;
+    color: #fff;
+    margin-right: 10px;
+    padding: 3px 20px;
+    float: left;
+}
+.main .categories .categories-item a {
+    color: #fff;
+}
