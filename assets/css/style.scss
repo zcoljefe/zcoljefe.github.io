@@ -3,22 +3,31 @@
 
 @import "{{ site.theme }}";
 
-.index-blog-list {
-    width: 650px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+/****************** cover jekyll-theme-cayman css **************************************************************************/
+/*  */
+.page-header {
+    padding: 5rem 0rem;
+	display: inline-block;
+	width:20%;
+	height:100%;
+	position:fixed;
+	top:0;
+	left:0;
+	z-index:9999999;
 }
 
-.index-blog-list .title {
-    margin-bottom: 3px;
-    font-size: 20px;
-    font-weight: bold;
+.main-content {
+	display: inline-block;
+	position:relative;
+	top:0;
+	left:20%;
 }
 
-.index-blog-list .shotinfo {
-    font-size: 11px;
+.project-name {
+    font-size: 2.25rem;
 }
 
+/******************* third part css ***************************************************************************************/
 .main .article {
     line-height: 1.6;
     position: relative;
@@ -234,4 +243,20 @@
 }
 .main .categories .categories-item a {
     color: #fff;
+}
+
+/******************* custom css ***************************************************************************************/
+.index-blog-list {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.index-blog-list .title {
+    margin-bottom: 0.3rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.index-blog-list .shotinfo {
+    font-size: 0.8rem;
 }
