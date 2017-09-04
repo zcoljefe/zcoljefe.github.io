@@ -2,13 +2,37 @@
 layout: default
 title: 最新动态
 ---
-{% for post in site.posts limit:5  %}
+{% for post in paginator.posts %}
 	<div class="index-blog-list">
 		<div class="title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></div>
-		<div class="shotinfo">时间：{{ post.date }};&nbsp;&nbsp;&nbsp;&nbsp;类别：{{post.categories}}</div>
+		<div class="shotinfo">时间：{{ post.date | date:'%Y-%m-%d'}}&nbsp;&nbsp;&nbsp;&nbsp;类别：{{post.categories}}</div>
 		{{ post.excerpt }}
 	</div>
 {% endfor %}
-	<div>
-		<a href="#">查看更多...</a>
-	<div>
+<hr style="height:1px;border:none;border-top:1px dashed #0066CC;">
+<!-- Pagination links -->
+{% if paginator.total_pages > 1 %}
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+  {% else %}
+    <span>&laquo; Prev</span>
+  {% endif %}
+
+  {% for page in (1..paginator.total_pages) %}
+    {% if page == paginator.page %}
+      <em>{{ page }}</em>
+    {% elsif page == 1 %}
+      <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+    {% else %}
+      <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+    {% endif %}
+  {% endfor %}
+
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+  {% else %}
+    <span>Next &raquo;</span>
+  {% endif %}
+</div>
+{% endif %}

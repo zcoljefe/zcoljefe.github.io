@@ -6,7 +6,10 @@
 /****************** cover jekyll-theme-cayman css **************************************************************************/
 /*  */
 .page-header {
-    padding: 5rem 0rem;
+	padding-top:5rem;
+	padding-bottom:1rem;
+	padding-left:0rem;
+	padding-right:0rem;
 	display: inline-block;
 	width:20%;
 	height:100%;
@@ -14,6 +17,10 @@
 	top:0;
 	left:0;
 	z-index:9999999;
+
+	justify-content:center;/*子元素水平居中*/
+	align-items:center;/*子元素垂直居中*/
+	display:-webkit-flex;
 }
 
 .main-content {
@@ -245,6 +252,66 @@
     color: #fff;
 }
 
+.main .article .article-year {
+    position: relative;
+    margin: 30px 0;
+    padding: 0 0;
+    list-style: none;
+}
+.main .article-year:after {
+    content: attr(data-year);
+    width: 32px;
+    height: 32px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -62px;
+    background: #e54e4d;
+    background: -moz-linear-gradient(0deg, #e54e4d 0%, #e54e4d 90%,  #b13c3c 100%);
+    background: -webkit-linear-gradient(0deg, #e54e4d 0%, #e54e4d 90%, #b13c3c 100%);
+    background: -o-linear-gradient(0deg, #e54e4d 0%,#e54e4d 90%,   #b13c3c 100%);
+    background: -ms-linear-gradient(to 0deg, #e54e4d 0%, #e54e4d 90%,  #b13c3c 100%);
+    background: linear-gradient(to 0deg, #e54e4d 0%,#e54e4d 90%,   #b13c3c 100%);
+    font-size: 12px;
+    line-height: 32px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+}
+.main .article-year li {
+    line-height: 32px;
+    padding-bottom: 10px;
+}
+.main .article-year li span {
+    width: 6.5rem;
+    text-align: right;
+    padding: 0 10px;
+    display: block;
+    float: left;
+    line-height: 32px;
+    background: #99b9c4;
+    color: #fefefe;
+}
+.main .article-year li a {
+    width: 500px;
+    display: block;
+    float: left;
+    line-height: 32px;
+    background: #f2eeec;
+    padding: 0 10px;
+}
+.main .article-year li a:hover {
+    color: #45625d;
+    border-bottom: none;
+}
+
+.fn-clear:after { 
+	visibility:hidden; 
+	display:block; 
+	font-size:0; 
+	content:" "; 
+	clear:both; 
+	height:0; 
+}
 /******************* custom css ***************************************************************************************/
 .index-blog-list {
     margin-top: 1rem;
@@ -257,6 +324,6 @@
     font-weight: bold;
 }
 
-.index-blog-list .shotinfo {
+.shotinfo {
     font-size: 0.8rem;
 }

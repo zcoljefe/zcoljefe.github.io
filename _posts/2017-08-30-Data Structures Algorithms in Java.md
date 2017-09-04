@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: blog
 title:  "简单排序与高级排序"
 date:   2017-08-30 16:16:16
 categories: java

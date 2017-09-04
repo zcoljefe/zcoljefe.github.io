@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: blog
 title:  "Hibernate validator校验"
 date:   2017-08-31 16:16:16
 categories: Hibernate validator

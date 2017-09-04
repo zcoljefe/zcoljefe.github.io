@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: blog
 title:  "http协议格式详解"
 date:   2017-07-01 16:16:16
 categories: java

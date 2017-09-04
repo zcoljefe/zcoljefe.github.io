@@ -8,11 +8,16 @@ excerpt_separator: <!--more-->
 encoding: utf-8
 theme: jekyll-theme-cayman
 
-#Nav config
+#导航栏
 nav:
-  - text: 首页
+  - text: 首 页
     url: index.html
   - text: 分类目录 
     url: navigations/categories.html
   - text: 文章归档
     url: navigations/archives.html
+
+#分页
+paginate: 5
+paginate_path: /page:num
+plugins: [jekyll-paginate]
