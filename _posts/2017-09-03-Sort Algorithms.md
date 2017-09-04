@@ -17,15 +17,15 @@ categories: algorithms
 **代码实现**  
 ```java
 /**
-  * 冒泡排序
-  */
-public void bubbleSort(int[] array){
-	for(int i = array.length-1; i > 0 ; i--){
-		for(int j = 0; j < i; j++){
-			if(array[j] > array[j+1]){
+ * 冒泡排序
+ */
+public static void bubbleSort(int[] array) {
+	for (int i = array.length - 1; i > 0; i--) {
+		for (int j = 0; j < i; j++) {
+			if (array[j] > array[j + 1]) {
 				int temp = array[j];
-				array[j] = array[j+1];
-				array[j+1] = temp;
+				array[j] = array[j + 1];
+				array[j + 1] = temp;
 			}
 		}
 	}
@@ -34,14 +34,54 @@ public void bubbleSort(int[] array){
 
 **算法效率**  
 每一轮比较将有一项数据排好序，因此下一轮比较次数将减一  
-*比较次数= (N-1) + (N-2) + ... + 2 + 1 = N(N-1)/2 即 O(N<sup>2</sup>)*  
+`比较次数= (N-1) + (N-2) + ... + 2 + 1 = N(N-1)/2 即 O(N²)`  
 大约有一半次数会进行数据交换  
-*交换次数=((N-1) + (N-2) + ... + 2 + 1)/2 = N(N-1)/4 即 O(N<sup>2</sup>)*  
-*时间复杂度:O(N²)*  
+`交换次数=((N-1) + (N-2) + ... + 2 + 1)/2 = N(N-1)/4 即 O(N²)`  
+`时间复杂度:O(N²)`
 
 ### 1.2 选择排序
 
+**代码实现**  
+```java
+/**
+ * 选择排序
+ */
+public static void selectionSort(int[] array) {
+	for (int i = 0; i < array.length; i++) {
+		int minIndex = i;
+		for (int j = i + 1; j < array.length; j++) {
+			if (array[j] < array[minIndex]) {
+				minIndex = j;
+			}
+		}
+		int temp = array[i];
+		array[i] = array[minIndex];
+		array[minIndex] = temp;
+	}
+}
+```
+
 ### 1.3 插入排序
+
+**代码实现**  
+```java
+/**
+ * 插入排序
+ */
+public static void insertSort(int[] array) {
+	int value;
+	for (int i = 1; i < array.length; i++) {
+		value = array[i];
+		int j = i;
+		while (j > 0 && array[j - 1] > value) {
+			array[j] = array[j - 1];
+			j--;
+		}
+		array[j] = value;
+	}
+}
+
+```
 
 ## 2 复杂排序算法
 
