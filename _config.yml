@@ -12,10 +12,11 @@ theme: jekyll-theme-cayman
 nav:
   - text: 首 页
     url: index.html
-  - text: 分类目录 
-    url: navigations/categories.html
-  - text: 文章归档
+  - text: 博客归档
     url: navigations/archives.html
+  - text: 博客分类 
+    url: navigations/categories.html
+
 
 #分页
 paginate: 5
