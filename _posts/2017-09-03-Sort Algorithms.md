@@ -208,16 +208,57 @@ public class ShellSort {
 }
 ```  
 
-**算法效率**  
-
-
 ### 2.3 快速排序
 **排序原理**  
+根据枢纽值，采用划分算法，将数组分为左右两个子数组，然后采用递归方式，分别对左右两个子数组进行排序。  
 
 **代码实现**  
+```java
+public class QuickSort {
+	public static void quickSort(int[] array) {
+		quick(array, 0, array.length - 1);
+	}
+
+	private static void quick(int[] array, int left, int right) {
+		if (right <= left) {
+			return;
+		} else {
+			/* 计算划分算法枢纽值 */
+			int pivot = (array[left] + array[right] + array[(left + right) / 2]) / 3;
+			/* 划分算法划分数组，返回枢纽值位置 */
+			int parttion = partition(array, left, right, pivot);
+			/* 排序枢纽值左边的子数组（递归调用快排） */
+			quick(array, left, parttion);
+			/* 排序枢纽值又边的子数组（递归调用快排） */
+			quick(array, parttion + 1, right);
+		}
+
+	}
+
+	private static int partition(int[] array, int leftIndex, int rightIndex, int pivot) {
+		while (true) {
+			while (leftIndex < rightIndex && array[leftIndex] < pivot) {
+				leftIndex++;
+			}
+			while (rightIndex > leftIndex && array[rightIndex] > pivot) {
+				rightIndex--;
+			}
+			if (leftIndex >= rightIndex) {
+				break;
+			} else {
+				int temp = array[leftIndex];
+				array[leftIndex] = array[rightIndex];
+				array[rightIndex] = temp;
+			}
+		}
+		return array[leftIndex] > pivot ? leftIndex - 1 : leftIndex;
+	}
+
+}
+```  
 
 **算法效率**  
-
+`时间复杂度:O(NlogN)` 
 
 ### 2.4 堆排序
 **排序原理**  
