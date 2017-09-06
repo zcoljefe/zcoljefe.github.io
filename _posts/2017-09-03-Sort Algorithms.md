@@ -258,11 +258,141 @@ public class QuickSort {
 ```  
 
 **算法效率**  
-`时间复杂度:O(NlogN)` 
+`时间复杂度:O(NlogN)`
 
 ### 2.4 堆排序
+#### 2.4.1 什么是堆
+**堆的特性**  
+①堆是完全二叉树，除了树的最后一层节点不需要是满的，其它每一层从左到又都完全是满的。  
+②堆中每一个节点关键字都大于（或等于）这个节点的子节点的关键字。  
+③堆常常使用数组实现(由于是完全二叉树，数组不存在“空洞”)。  
+
+**移除remove**  
+移除是指删除关键字最大的节点，这个节点总是根节点，其在数组中的索引为0。  
+一旦移除根节点，数组出现“空洞”(即数组索引为0的位置)，树不再是完全二叉树，因此需要填补，使其重新成为完全二叉树。步骤如下：  
+①移除根。  
+②将最后一个节点(即数组中最后一个节点)移到根的位置。  
+③向下筛选这个节点，直到它处于一个大于它的节点之下，小于它的节点之上。  
+<p style="color:red">注意：筛选过程中，该节点需与较大子节点进行交换。否则将使较小子节点成为较大子节点的父节点。</p>  
+<img src="{{ site.url }}/images/sort algorithms_heapArray_remove.jpg" width="700" />  
+
+
+**插入insert**  
+插入采用向上筛选方式：  
+①将节点插入堆的最后，即数组的最后。  
+②与父节点比较，如果大于父节点则互换位置，直至节点出于一个大于它的父节点之下或成为根节点。
+<img src="{{ site.url }}/images/sort algorithms_heapArray_insert.jpg" width="700" />  
+
+**基于数组的堆的代码实现**  
+在数组中，如果一个节点的索引为x，则  
+**父节点**索引为`(x-1)/2`  
+**左子节点**索引为`2x+1`  
+**右子节点**索引为`2x+2`  
+```java
+public class Heap {
+	private int[] heapArray;
+	private int count;
+
+	public Heap(int[] heapArray, int count) {
+		this.heapArray = heapArray;
+		this.count = count;
+	}
+
+	public void insert(int num) {
+		heapArray[count] = num;
+		trickleUp(count++);
+	}
+
+	public int remove() {
+		int returnVal = heapArray[0];
+		heapArray[0] = heapArray[--count];
+		trickleDown(0);
+		return returnVal;
+	}
+
+	/**
+	 * 向上筛选
+	 */
+	public void trickleUp(int index) {
+		int parent = (index - 1) / 2;
+		int indexVal = heapArray[index];
+
+		while (index > 0 && heapArray[parent] < indexVal) {
+			heapArray[index] = heapArray[parent];
+			index = parent;
+			parent = (index - 1) / 2;
+		}
+		heapArray[index] = indexVal;
+	}
+
+	/**
+	 * 向下筛选
+	 */
+	public void trickleDown(int index) {
+		int largerChildIndex;
+		int indexVal = heapArray[index];
+
+		int leftChildIndex = 2 * index + 1;
+		int rightChildIndex = leftChildIndex + 1;
+		while (leftChildIndex < count) {
+			if (rightChildIndex < count && heapArray[rightChildIndex] > heapArray[leftChildIndex]) {
+				largerChildIndex = rightChildIndex;
+			} else {
+				largerChildIndex = leftChildIndex;
+			}
+
+			if (indexVal > heapArray[largerChildIndex]) {
+				break;
+			} else {
+				heapArray[index] = heapArray[largerChildIndex];
+				index = largerChildIndex;
+				leftChildIndex = 2 * index + 1;
+				rightChildIndex = leftChildIndex + 1;
+			}
+		}
+		heapArray[index] = indexVal;
+	}
+}
+```
+
+#### 2.4.2 堆排序
 **排序原理**  
+利用堆的特性，调用`insert`方法，将待排序数组插入堆中，再调用`remove`方法，将数据取出，即完成排序。  
 
 **代码实现**  
+```java
+public class HeapSort {
+	public static void heapSort(int[] array) {
+		Heap heap = new Heap(new int[array.length], 0);
+		for (int i = 0; i < array.length; i++) {
+			heap.insert(array[i]);
+		}
+		for (int j = array.length - 1; j >= 0; j--) {
+			array[j] = heap.remove();
+		}
+	}
+}
+```  
+
+<p style="color:red">缺点：这种方式需要额外一个数组生成一个和待排序数组一样大小的临时空间。</p>  
+<label style="color:red">改进方式：</label>将待排序数组看做是一个堆的数组表示，堆所有非叶子节点使用向下筛选`trickleDown`方法,筛选完成，则数组变成一个正确的堆数组。然后再调用`remove`方法将数据移除；由于移除一个数据后，数组将空出一位，将移除数据，存入空出的空间即可。  
+**代码实现**  
+```java
+public class HeapSort {
+	public static void heapSort(int[] array) {
+		Heap heap = new Heap(array, array.length);
+		for (int i = array.length / 2 - 1; i >= 0; i--) {
+			heap.trickleDown(i);
+		}
+		for (int j = array.length - 1; j >= 0; j--) {
+			array[j] = heap.remove();
+		}
+	}
+}
+```  
 
 **算法效率**  
+因为`insert`和`remove`方法的时间复杂度都是O(logN),而每个方法需要执行N此，因此  
+`堆排序时间复杂度为O(NlogN)`  
+由于其while循环中执行操作要比快速排序复杂，其排序速度不如快速排序。  
+**优点：节省时间、节省内存。**
